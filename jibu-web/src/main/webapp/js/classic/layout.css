@@ -1,0 +1,27 @@
+.main-header .x-panel-body {
+    background:transparent;
+}
+.icon-expand-all {
+    background-image: url(images/expand-all.gif) !important;
+}
+.icon-collapse-all {
+    background-image: url(images/collapse-all.gif) !important;
+}
+.x-tree-node div.modules-node{
+    background:#eee;
+    margin-top:1px;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ccc;
+    padding-top:2px;
+    padding-bottom:3px;
+}
+.user {
+    background-image: url(images/user.gif) !important;
+}
+.exit {
+    background-image: url(images/exit.gif) !important;
+}
+
+.x-panel-body-default {
+border-top-width:0;
+}

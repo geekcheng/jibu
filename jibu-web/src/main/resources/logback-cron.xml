@@ -1,0 +1,23 @@
+<configuration>
+  <!-- 生产环境下提前创建目录 /var/log/jibu ，tomcat 用户对此目录有写权限 -->
+  <property name="LOG_DIR" value="/var/log/jibu" />
+
+  <appender name="JIBU" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_DIR}/cronjob.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>${LOG_DIR}/cronjob.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <!-- keep 60 days' worth of history -->
+      <maxHistory>60</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d %-5level [%thread] %logger{36} [%line] - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="org.gaixie.jibu" level="INFO"/>
+
+  <root level="WARN">
+    <appender-ref ref="JIBU" />
+  </root>
+</configuration>

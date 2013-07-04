@@ -1,0 +1,2 @@
+# exclude-file:
+- **/jibu.properties

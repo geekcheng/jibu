@@ -1,0 +1,27 @@
+<configuration>
+  <appender name="JIBU" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>jibu.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <!-- daily rollover -->
+      <fileNamePattern>jibu.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <!-- keep 1 days' worth of history -->
+      <maxHistory>1</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d %-5level [%thread] %logger{36} [%line] - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d %-5level [%thread] %logger{16} [%line] - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <logger name="org.gaixie.jibu" level="DEBUG"/>
+
+  <root level="WARN">
+    <appender-ref ref="JIBU" />
+    <appender-ref ref="STDOUT" />
+  </root>
+</configuration>

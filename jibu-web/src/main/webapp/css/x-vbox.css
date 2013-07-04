@@ -1,0 +1,132 @@
+#navigationline {
+    background         : none repeat scroll 0 0 #FFFFFF;
+    border-top         : 2px solid #224272;
+    clear              : both;
+    height             : 1px;
+    margin             : 0;
+    padding            : 0;
+    position           : relative;
+    z-index            : 2;
+}
+#container {
+    margin             : 0 auto;
+    position           : relative;
+    width              : 980px;
+}
+.content {
+    border             : 1px solid #CCCCCC;
+    border-radius      : 3px 3px 3px 3px;
+    -moz-box-shadow    : rgba(200,200,200,0.7) 0 4px 18px;
+    -webkit-box-shadow : rgba(200,200,200,0.7) 0 4px 18px;
+    -khtml-box-shadow  : rgba(200,200,200,0.7) 0 4px 18px;
+    box-shadow         : rgba(200,200,200,0.7) 0 4px 18px;
+    font               : 12px/18px "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+    margin             : 10px 0;
+}
+table {
+    border-collapse    : collapse;
+    border             : 1px solid #CCCCCC;
+}
+table tr {
+    border-bottom      : 1px solid #E5E5E5;
+}
+table tr.odd {
+    background-color   : #EEEEEE;
+}
+thead th,
+tbody th {
+    padding            : 5px 10px;
+    font-weight        : bold;
+    border             : 1px solid #E5E5E5;
+}
+tbody tr td {
+    padding            : 5px 10px;
+    border             : 1px solid #E5E5E5;
+}
+tbody tr:hover {
+    background-color   : #DDDDDD;
+}
+form table {
+    border             : 0;
+}
+
+form tbody tr:hover {
+    background-color   : #FFFFFF;
+}
+form tbody td {
+    padding            : 5px 10px;
+    border             : 0;
+}
+form tbody th {
+    padding            : 5px 10px;
+    text-align         : left;
+    border             : 0;
+}
+tfoot td,
+tfoot th {
+    padding            : 4px;
+    background-color   : #FFF;
+}
+.caption {
+    text-align         : left;
+    font-weight        : bold;
+    padding            : 5px 10px;
+    background-color   : #224272;
+    color              : #FFFFFF;
+}
+table a:link {
+    color              : #666;
+}
+table a:visited {
+    color              : #666;
+}
+table a:hover {
+    color              : #003366;
+    text-decoration    : none;
+}
+table a:active {
+    color              : #003366;
+}
+
+.footer {
+    clear              : both;
+    font-size          : 11px;
+    padding            : 20px 0 0;
+}
+.footer p {
+    border-top         : 1px solid #224272;
+    text-align         : right;
+}
+.updatets {
+    color              : #A0A0A0;
+    font-style         : italic;
+    font-size          : 11px;
+    padding            : 10px 0 0;
+}
+
+#submit_button {
+    font-size          : 12px;
+    padding            : 2px 10px;
+    margin             : 5px 10px;
+    width              : auto;
+}
+
+#submit_error {
+    background-color   : #FFEBE8;
+    border-color       : #CC0000;
+    border-style       : solid;
+    border-width       : 1px;
+    font-size          : 11px;
+    margin             : 10px 0;
+    padding            : 10px 16px;
+}
+
+#submit_message {
+    background-color   : #FFFFE0;
+    border-color       : #E6DB55;
+    border-style       : solid;
+    border-width       : 1px;
+    font-size          : 11px;
+    margin             : 10px 0;
+    padding            : 10px 16px;
+}

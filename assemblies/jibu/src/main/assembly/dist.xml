@@ -1,0 +1,31 @@
+<assembly>
+  <id>dist</id>
+  <formats>
+    <format>tar.gz</format>
+  </formats>
+  <includeBaseDirectory>true</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>../..</directory>
+      <outputDirectory></outputDirectory>
+      <includes>
+        <include>README</include>
+        <include>LICENSE</include>
+        <include>NOTICE</include>
+      </includes>
+    </fileSet>
+    <fileSet>
+      <directory>../../jibu-web/target/jibu-web-${project.version}</directory>
+      <outputDirectory></outputDirectory>
+      <excludes>
+        <exclude>ext/ext-all-debug.js</exclude>
+        <exclude>ext/ext-all-dev.js</exclude>
+        <exclude>WEB-INF/classes/logback-test.xml</exclude>
+      </excludes>
+    </fileSet>
+    <fileSet>
+      <directory>../../jibu-web/src/bin</directory>
+      <outputDirectory>WEB-INF/bin</outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>

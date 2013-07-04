@@ -1,0 +1,155 @@
+.search-icon {
+    background-image: url(../images/icons/search.png) !important;
+}
+
+.add-icon {
+    background-image: url(../images/icons/add.png) !important;
+}
+
+.delete-icon {
+    background-image: url(../images/icons/delete.png) !important;
+}
+
+.cancel-icon {
+    background-image: url(../images/icons/cancel.png) !important;
+}
+
+.save-icon {
+    background-image: url(../images/icons/save.png) !important;
+}
+
+.bind-icon {
+    background-image: url(../images/icons/bind.png) !important;
+}
+
+.unbind-icon {
+    background-image: url(../images/icons/unbind.png) !important;
+}
+
+.pie-chart-icon {
+    background-image: url(../images/icons/pie-chart.png) !important;
+}
+
+.bar-chart-icon {
+    background-image: url(../images/icons/bar-chart.png) !important;
+}
+
+.line-chart-icon {
+    background-image: url(../images/icons/line-chart.png) !important;
+}
+
+.edit-icon {
+    background-image: url(../images/icons/edit.png) !important;
+}
+
+.info-icon {
+    background-image: url(../images/icons/info.png) !important;
+}
+
+.alert-icon {
+    background-image: url(../images/icons/alert.png) !important;
+}
+
+.star-icon {
+    background-image: url(../images/icons/star.png) !important;
+}
+
+.star-off-icon {
+    background-image: url(../images/icons/star-off.png) !important;
+}
+
+.refresh-icon {
+    background-image: url(../images/icons/refresh.png) !important;
+}
+
+/*-----------------------------------------------------------------/
+/* StatusBar style */
+.x-statusbar .x-status-text {
+    cursor: default;
+}
+
+.x-toolbar div.xtb-text
+
+.x-statusbar .x-status-text-panel {
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    padding: 2px 8px 2px 5px;
+}
+
+.x-statusbar .x-status-error {
+    padding-left: 25px !important;
+    background: transparent no-repeat 3px 0;
+}
+
+.x-statusbar .x-status-valid {
+    padding-left: 25px !important;
+    background: transparent no-repeat 3px 0;
+}
+
+.x-statusbar .x-status-error {
+    background-image: url(../images/icons/exclamation.gif);
+}
+
+.x-statusbar .x-status-valid {
+    background-image: url(../images/icons/accept.png);
+}
+
+/*---------------------------------------------------------*/
+/* frame=true, remove border */
+.form-frame {
+    border-width: 0px;
+}
+
+/*---------------------------------------------------------*/
+/* extjs default font size change to 12px, order by name */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+    padding-top: 4px;
+    padding-bottom: 2px;
+    line-height: 14px;
+}
+
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+    padding-top: 3px;
+}
+
+.x-grid-checkheader {
+    height: 14px;
+    background-image: url('../images/icons/unchecked.gif');
+    background-position: 50% -2px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+.x-grid-checkheader-checked {
+    background-image: url('../images/icons/checked.gif');
+}
+
+.x-grid-checkheader-editor .x-form-cb-wrap {
+    text-align: center;
+}
+
+.no-icon {
+    background-image:'';
+}
+
+.x-btn-default-large .x-btn-inner,
+.x-panel-header-text-default,
+.x-toolbar .x-toolbar-text,
+.x-panel-header-text-default-framed,
+.x-btn-default-medium .x-btn-inner,
+.x-btn-default-small .x-btn-inner,
+.x-toolbar .x-form-item-label,
+.x-fieldset-header,
+.x-column-header,
+.x-btn-default-toolbar-small .x-btn-inner,
+.x-grid-row .x-grid-cell,
+.x-window-header-text-default,
+.x-tab button {
+    font-size: 12px;
+}
+
+.x-tab button {
+    font-family: arial, sans-serif;
+}

@@ -1,0 +1,33 @@
+/* groupbutton font*/
+.x-btn-default-small .x-btn-inner {
+	font-size: 12px;
+}
+/* splitbutton font*/
+.x-btn-default-toolbar-medium .x-btn-inner {
+	font-size: 12px;
+}
+/* menu item */
+.x-menu-item-text {
+	font-size: 12px;
+}
+
+.group-btn {
+	background-image: url('');
+	height: 32px;
+}
+
+.table-bkg {
+	background-color: #276195;
+	background-image: url('images/page-background.png');
+}
+
+.x-panel-body-default {
+border-top-width:0;
+}
+
+.user {
+    background-image: url(images/user.gif) !important;
+}
+.exit {
+    background-image: url(images/exit.gif) !important;
+}

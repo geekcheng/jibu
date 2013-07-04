@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.gaixie</groupId>
+    <artifactId>gaixie</artifactId>
+    <version>1</version>
+  </parent>
+
+  <groupId>org.gaixie.jibu</groupId>
+  <artifactId>jibu-parent</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Jibu</name>
+  <description>稳定、高效、简洁的 Java 应用开发模板。</description>
+  <inceptionYear>2010</inceptionYear>
+
+  <url>http://www.gaixie.org/</url>
+
+  <scm>
+    <connection>scm:git:git://github.com/bitorb/jibu.git</connection>
+    <developerConnection>scm:git:git://github.com/bitorb/jibu.git</developerConnection>
+    <url>scm:git:git://github.com/bitorb/jibu.git</url>
+  </scm>
+
+  <developers>
+    <developer>
+      <name>Tommy Wang</name>
+      <id>tommy</id>
+      <email>bitorb@gmail.com</email>
+      <organization />
+      <roles>
+        <role>Owner</role>
+      </roles>
+    </developer>
+  </developers>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <guice.version>3.0</guice.version>
+    <pgsql.jdbc.version>9.2-1003-jdbc4</pgsql.jdbc.version>
+    <mysql.jdbc.version>5.1.25</mysql.jdbc.version>
+    <dbutils.version>1.4</dbutils.version>
+    <dbcp.version>1.4</dbcp.version>
+    <slf4j.version>1.7.5</slf4j.version>
+    <logback.version>1.0.13</logback.version>
+    <jetty.version>8.1.11.v20130520</jetty.version>
+  </properties>
+
+  <modules>
+    <module>jibu-core</module>
+    <module>jibu-web</module>
+    <module>plugins</module>
+    <module>assemblies</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.2</version>
+          <configuration>
+            <source>1.7</source>
+            <target>1.7</target>
+            <encoding>utf-8</encoding>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.4</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.2.2</version>
+          <configuration>
+            <tagNameFormat>v@{project.version}</tagNameFormat>
+            <scmCommentPrefix>[mvn]</scmCommentPrefix>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <version>2.9</version>
+          <configuration> 
+            <downloadSources>true</downloadSources>
+            <wtpversion>2.0</wtpversion>
+          </configuration> 
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.8.1</version>
+          <configuration>
+            <links>
+              <link>http://download.oracle.com/javase/7/docs/api/</link>
+              <link>http://download.oracle.com/javaee/6/api/</link>
+              <!-- <link>http://google-guice.googlecode.com/svn/tags/3.0/javadoc/</link> -->
+            </links>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.9</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.easymock</groupId>
+        <artifactId>easymock</artifactId>
+        <version>3.1</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.google.inject</groupId>
+        <artifactId>guice</artifactId>
+        <version>${guice.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>${logback.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>${logback.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.gaixie.jibu</groupId>
+        <artifactId>jibu-core</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
