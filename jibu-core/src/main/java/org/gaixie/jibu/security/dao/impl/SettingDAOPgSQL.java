@@ -26,7 +26,7 @@ public class SettingDAOPgSQL implements SettingDAO {
     private QueryRunner run = null;
 
     public SettingDAOPgSQL() {
-	this.run = new QueryRunner();
+        this.run = new QueryRunner();
     }
 
     public Setting get(Connection conn, int id) throws SQLException {

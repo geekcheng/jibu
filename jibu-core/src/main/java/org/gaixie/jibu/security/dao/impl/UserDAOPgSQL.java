@@ -28,7 +28,7 @@ public class UserDAOPgSQL implements UserDAO {
     private QueryRunner run = null;
 
     public UserDAOPgSQL() {
-	this.run = new QueryRunner();
+        this.run = new QueryRunner();
     }
 
     /**

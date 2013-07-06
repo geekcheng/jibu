@@ -20,7 +20,7 @@ public class TokenDAOMySQL implements TokenDAO {
     private QueryRunner run = null;
 
     public TokenDAOMySQL() {
-	this.run = new QueryRunner();
+    this.run = new QueryRunner();
     }
 
     public Token get(Connection conn, int id) throws SQLException {

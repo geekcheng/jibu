@@ -26,39 +26,39 @@ public class RoleDAOPgSQL implements RoleDAO {
     private QueryRunner run = null;
 
     public RoleDAOPgSQL() {
-	this.run = new QueryRunner();
+        this.run = new QueryRunner();
     }
 
     public Role get(Connection conn, int id) throws SQLException {
-	ResultSetHandler<Role> h = new BeanHandler(Role.class);
-	return run.query(conn
-			 , "SELECT id, name, description, lft, rgt FROM roles WHERE id=? "
-			 , h
-			 , id);
+        ResultSetHandler<Role> h = new BeanHandler(Role.class);
+        return run.query(conn
+                         , "SELECT id, name, description, lft, rgt FROM roles WHERE id=? "
+                         , h
+                         , id);
     }
 
     public Role get(Connection conn, String name) throws SQLException {
-	ResultSetHandler<Role> h = new BeanHandler(Role.class);
-	return run.query(conn
-			 , "SELECT id, name, description, lft, rgt FROM roles WHERE name=? "
-			 , h
-			 , name);
+        ResultSetHandler<Role> h = new BeanHandler(Role.class);
+        return run.query(conn
+                         , "SELECT id, name, description, lft, rgt FROM roles WHERE name=? "
+                         , h
+                         , name);
     }
 
     public void save(Connection conn, Role role, Role parent) throws SQLException {
-	if (null==parent) return ;
-	run.update(conn
-		   , "UPDATE roles set lft=lft+2 where lft > ?"
-		   , parent.getLft());
-	run.update(conn
-		   , "UPDATE roles set rgt=rgt+2 where rgt > ?"
-		   , parent.getLft());
-	run.update(conn
-		   , "INSERT INTO roles (name,description,lft,rgt) values (?,?,?,?)"
-		   , role.getName()
-		   , role.getDescription()
-		   , parent.getLft()+1
-		   , parent.getLft()+2);
+        if (null==parent) return ;
+        run.update(conn
+                   , "UPDATE roles set lft=lft+2 where lft > ?"
+                   , parent.getLft());
+        run.update(conn
+                   , "UPDATE roles set rgt=rgt+2 where rgt > ?"
+                   , parent.getLft());
+        run.update(conn
+                   , "INSERT INTO roles (name,description,lft,rgt) values (?,?,?,?)"
+                   , role.getName()
+                   , role.getDescription()
+                   , parent.getLft()+1
+                   , parent.getLft()+2);
     }
 
 
@@ -92,12 +92,12 @@ public class RoleDAOPgSQL implements RoleDAO {
         run.update(conn
                    , "DELETE FROM roles WHERE id =?"
                    , role.getId());
-	run.update(conn
-		   , "UPDATE roles set lft=lft-2 where lft > ?"
-		   , role.getLft());
-	run.update(conn
-		   , "UPDATE roles set rgt=rgt-2 where rgt > ?"
-		   , role.getLft());
+        run.update(conn
+                   , "UPDATE roles set lft=lft-2 where lft > ?"
+                   , role.getLft());
+        run.update(conn
+                   , "UPDATE roles set rgt=rgt-2 where rgt > ?"
+                   , role.getLft());
     }
 
     /**
@@ -106,14 +106,14 @@ public class RoleDAOPgSQL implements RoleDAO {
      * 按 lft 排序。
      */
     public List<Role> getAll(Connection conn) throws SQLException {
-	ResultSetHandler<List<Role>> h = new BeanListHandler(Role.class);
-	return  run.query(conn
-			  ,"SELECT node.id, node.name, node.description, node.lft, node.rgt,(COUNT(parent.name)-1) AS depth "+
-			  " FROM roles AS node, roles AS parent "+
-			  " WHERE node.lft BETWEEN parent.lft AND parent.rgt "+
+        ResultSetHandler<List<Role>> h = new BeanListHandler(Role.class);
+        return  run.query(conn
+                          ,"SELECT node.id, node.name, node.description, node.lft, node.rgt,(COUNT(parent.name)-1) AS depth "+
+                          " FROM roles AS node, roles AS parent "+
+                          " WHERE node.lft BETWEEN parent.lft AND parent.rgt "+
                           " GROUP BY node.id, node.name, node.description, node.lft, node.rgt "+
-			  " ORDER BY node.lft"
-			  , h);
+                          " ORDER BY node.lft"
+                          , h);
     }
 
     /**
@@ -122,10 +122,10 @@ public class RoleDAOPgSQL implements RoleDAO {
      * role.getId() 与 auth.getId() 不能为 null。
      */
     public void bind(Connection conn, Role role, Authority auth) throws SQLException {
-	run.update(conn
-		   , "INSERT INTO role_authority_map (role_id,authority_id) values (?,?)"
-		   , role.getId()
-		   , auth.getId());
+        run.update(conn
+                   , "INSERT INTO role_authority_map (role_id,authority_id) values (?,?)"
+                   , role.getId()
+                   , auth.getId());
 
     }
 
@@ -135,13 +135,13 @@ public class RoleDAOPgSQL implements RoleDAO {
      * auth.getId() 不能为 null。
      */
     public List<Role> find(Connection conn, Authority auth) throws SQLException {
-	ResultSetHandler<List<Role>> h = new BeanListHandler(Role.class);
-	return  run.query(conn
-			  ,"SELECT node.id, node.name, node.description, node.lft, node.rgt "+
-			  " FROM roles AS node, role_authority_map AS ram "+
-			  " WHERE node.id = ram.role_id "+
-			  " AND ram.authority_id = ? "
-			  , h,auth.getId());
+        ResultSetHandler<List<Role>> h = new BeanListHandler(Role.class);
+        return  run.query(conn
+                          ,"SELECT node.id, node.name, node.description, node.lft, node.rgt "+
+                          " FROM roles AS node, role_authority_map AS ram "+
+                          " WHERE node.id = ram.role_id "+
+                          " AND ram.authority_id = ? "
+                          , h,auth.getId());
     }
 
     /**
@@ -150,10 +150,10 @@ public class RoleDAOPgSQL implements RoleDAO {
      * role.getId() 与 user.getId() 不能为 null。
      */
     public void bind(Connection conn, Role role, User user) throws SQLException {
-	run.update(conn
-		   , "INSERT INTO user_role_map (user_id,role_id) values (?,?)"
-		   , user.getId()
-		   , role.getId());
+        run.update(conn
+                   , "INSERT INTO user_role_map (user_id,role_id) values (?,?)"
+                   , user.getId()
+                   , role.getId());
     }
 
     /**
@@ -162,10 +162,10 @@ public class RoleDAOPgSQL implements RoleDAO {
      * role.getId() 与 user.getId() 不能为 null。
      */
     public void unbind(Connection conn, Role role, User user) throws SQLException {
-	run.update(conn
-		   , "DELETE FROM user_role_map WHERE user_id=? and role_id=?"
-		   , user.getId()
-		   , role.getId());
+        run.update(conn
+                   , "DELETE FROM user_role_map WHERE user_id=? and role_id=?"
+                   , user.getId()
+                   , role.getId());
     }
 
     /**
@@ -174,10 +174,10 @@ public class RoleDAOPgSQL implements RoleDAO {
      * role.getId() 与 auth.getId() 不能为 null。
      */
     public void unbind(Connection conn, Role role, Authority auth) throws SQLException {
-	run.update(conn
-		   , "DELETE FROM role_authority_map WHERE authority_id=? and role_id=?"
-		   , auth.getId()
-		   , role.getId());
+        run.update(conn
+                   , "DELETE FROM role_authority_map WHERE authority_id=? and role_id=?"
+                   , auth.getId()
+                   , role.getId());
     }
 
     /**
@@ -186,55 +186,55 @@ public class RoleDAOPgSQL implements RoleDAO {
      * user.getId() 不能为 null。
      */
     public List<Role> find(Connection conn, User user) throws SQLException {
-	ResultSetHandler<List<Role>> h = new BeanListHandler(Role.class);
-	return  run.query(conn
-			  ,"SELECT node.id, node.name, node.description, node.lft, node.rgt "+
-			  " FROM roles AS node, user_role_map AS urm "+
-			  " WHERE node.id = urm.role_id "+
-			  " AND urm.user_id = ? "
-			  , h,user.getId());
+        ResultSetHandler<List<Role>> h = new BeanListHandler(Role.class);
+        return  run.query(conn
+                          ,"SELECT node.id, node.name, node.description, node.lft, node.rgt "+
+                          " FROM roles AS node, user_role_map AS urm "+
+                          " WHERE node.id = urm.role_id "+
+                          " AND urm.user_id = ? "
+                          , h,user.getId());
     }
 
     public List<String> findByAuthid(Connection conn, int id) throws SQLException {
-	ResultSetHandler<List<String>> h = new ResultSetHandler<List<String>>() {
-	    public List<String> handle(ResultSet rs) throws SQLException {
-		List<String> result = new ArrayList<String>();
-		while(rs.next()) {
-		    result.add(rs.getString(1));
-		}
-		return result;
-	    }
-	};
-	return  run.query(conn
-			  ,"SELECT r.name "+
-			  " FROM roles AS r, role_authority_map AS ram "+
-			  " WHERE r.id = ram.role_id "+
-			  " AND ram.authority_id =? "
-			  , h
+        ResultSetHandler<List<String>> h = new ResultSetHandler<List<String>>() {
+            public List<String> handle(ResultSet rs) throws SQLException {
+                List<String> result = new ArrayList<String>();
+                while(rs.next()) {
+                    result.add(rs.getString(1));
+                }
+                return result;
+            }
+        };
+        return  run.query(conn
+                          ,"SELECT r.name "+
+                          " FROM roles AS r, role_authority_map AS ram "+
+                          " WHERE r.id = ram.role_id "+
+                          " AND ram.authority_id =? "
+                          , h
                           , id);
     }
 
     public List<String> findByUsername(Connection conn, String username) throws SQLException {
-	ResultSetHandler<List<String>> h = new ResultSetHandler<List<String>>() {
-	    public List<String> handle(ResultSet rs) throws SQLException {
-		List<String> result = new ArrayList<String>();
-		while(rs.next()) {
-		    result.add(rs.getString(1));
-		}
-		int len = result.size();
-		if (len <=0) return null;
-		return result;
-	    }
-	};
+        ResultSetHandler<List<String>> h = new ResultSetHandler<List<String>>() {
+            public List<String> handle(ResultSet rs) throws SQLException {
+                List<String> result = new ArrayList<String>();
+                while(rs.next()) {
+                    result.add(rs.getString(1));
+                }
+                int len = result.size();
+                if (len <=0) return null;
+                return result;
+            }
+        };
 
-	return  run.query(conn
-			  ,"SELECT parent.name "+
-			  " FROM roles AS node, roles AS parent, user_role_map AS urm, userbase u "+
-			  " WHERE node.id = urm.role_id "+
-			  " AND node.lft BETWEEN parent.lft AND parent.rgt "+
-			  " AND u.id = urm.user_id " +
-			  " AND u.username = ? "
-			  , h,username);
+        return  run.query(conn
+                          ,"SELECT parent.name "+
+                          " FROM roles AS node, roles AS parent, user_role_map AS urm, userbase u "+
+                          " WHERE node.id = urm.role_id "+
+                          " AND node.lft BETWEEN parent.lft AND parent.rgt "+
+                          " AND u.id = urm.user_id " +
+                          " AND u.username = ? "
+                          , h,username);
     }
 
 }

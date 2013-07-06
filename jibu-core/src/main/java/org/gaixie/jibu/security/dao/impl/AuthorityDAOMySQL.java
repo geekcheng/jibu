@@ -23,7 +23,7 @@ public class AuthorityDAOMySQL implements AuthorityDAO {
     private QueryRunner run = null;
 
     public AuthorityDAOMySQL() {
-	this.run = new QueryRunner();
+        this.run = new QueryRunner();
     }
 
     public Authority get( Connection conn, int id) throws SQLException {
@@ -121,16 +121,16 @@ public class AuthorityDAOMySQL implements AuthorityDAO {
      * user.getId() 不能为 null。
      */
     public List<Authority> find(Connection conn, User user) throws SQLException {
-	ResultSetHandler<List<Authority>> h = new BeanListHandler(Authority.class);
-	return  run.query(conn
-			  ,"SELECT a.id, a.name, a.value "+
-			  " FROM roles AS node, roles AS parent, user_role_map AS urm, role_authority_map AS ram, authorities AS a "+
-			  " WHERE node.id = urm.role_id "+
-			  " AND node.lft BETWEEN parent.lft AND parent.rgt "+
-			  " AND parent.id = ram.role_id "+
-			  " AND ram.authority_id = a.id "+
-			  " AND urm.user_id = ? "
-			  , h,user.getId());
+        ResultSetHandler<List<Authority>> h = new BeanListHandler(Authority.class);
+        return  run.query(conn
+                          ,"SELECT a.id, a.name, a.value "+
+                          " FROM roles AS node, roles AS parent, user_role_map AS urm, role_authority_map AS ram, authorities AS a "+
+                          " WHERE node.id = urm.role_id "+
+                          " AND node.lft BETWEEN parent.lft AND parent.rgt "+
+                          " AND parent.id = ram.role_id "+
+                          " AND ram.authority_id = a.id "+
+                          " AND urm.user_id = ? "
+                          , h,user.getId());
     }
 
     /**
@@ -139,12 +139,12 @@ public class AuthorityDAOMySQL implements AuthorityDAO {
      * role.getId() 不能为 null。
      */
     public List<Authority> find(Connection conn, Role role) throws SQLException {
-	ResultSetHandler<List<Authority>> h = new BeanListHandler(Authority.class);
-	return  run.query(conn
-			  ,"SELECT a.id, a.name, a.value "+
-			  " FROM role_authority_map AS ram, authorities AS a "+
-			  " WHERE ram.authority_id = a.id "+
-			  " AND ram.role_id = ? "
-			  , h,role.getId());
+        ResultSetHandler<List<Authority>> h = new BeanListHandler(Authority.class);
+        return  run.query(conn
+                          ,"SELECT a.id, a.name, a.value "+
+                          " FROM role_authority_map AS ram, authorities AS a "+
+                          " WHERE ram.authority_id = a.id "+
+                          " AND ram.role_id = ? "
+                          , h,role.getId());
     }
 }
