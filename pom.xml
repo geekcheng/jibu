@@ -83,6 +83,7 @@
           <configuration>
             <tagNameFormat>v@{project.version}</tagNameFormat>
             <scmCommentPrefix>[mvn]</scmCommentPrefix>
+            <pushChanges>false</pushChanges>
           </configuration>
         </plugin>
         <plugin>
