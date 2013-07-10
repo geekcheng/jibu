@@ -22,9 +22,9 @@
   <url>http://www.gaixie.org/</url>
 
   <scm>
-    <connection>scm:git:git://github.com/bitorb/jibu.git</connection>
-    <developerConnection>scm:git:git://github.com/bitorb/jibu.git</developerConnection>
-    <url>scm:git:git://github.com/bitorb/jibu.git</url>
+    <connection>scm:git:ssh://git@github.com/bitorb/jibu.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/bitorb/jibu.git</developerConnection>
+    <url>http://github.com/bitorb/jibu.git</url>
   </scm>
 
   <developers>
