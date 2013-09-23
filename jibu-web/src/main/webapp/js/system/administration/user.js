@@ -232,6 +232,12 @@ Ext.define('jibu.security.user.Grid', {
             bbar: Ext.create('Ext.PagingToolbar',{
                 itemId:'user-page-tbar',
                 store: store,
+                listeners:{
+                    // 角色到用户绑定翻页时，会自动 deselect 当前也数据
+                    beforechange : function(){
+                        store.removeAll();
+                    }
+                },
                 displayInfo: false,
                 items:['-',
                        {
