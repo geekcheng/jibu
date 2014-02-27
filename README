@@ -37,9 +37,9 @@
   外还有一份 javadoc 文档和数据库 schema 说明文档。可以通过下面的地址在线阅读
   最新的版本，历史版本通过源码编译生成，详细步骤请参考主文档。
 
-    - 主文档: http://gaixie.org/cn/docs/jibu-doc/
-    - javadoc: http://gaixie.org/cn/docs/jibu-api/
-    - 数据库 schema: http://gaixie.org/cn/docs/jibu-schema/
+    - 主文档: http://jibu.qiniudn.com/jibu-doc/
+    - javadoc: http://jibu.qiniudn.com/jibu-api/
+    - 数据库 schema: http://jibu.qiniudn.com/jibu-schema/
 
 通过源码进行编译：
 ---------------
@@ -72,13 +72,6 @@ Bug 提交：
   Jibu 使用 github.com 进行 Bug 跟踪，所以如果发现任何问题，请提交到下面的地址：
 
     - https://github.com/bitorb/jibu/issues
-
-在线演示：
---------
-
-  我们提供一个在线 Demo 系统，相关数据会不定期的被重置。
-
-    - http://demo.gaixie.org/x/
 
 交流沟通：
 --------
